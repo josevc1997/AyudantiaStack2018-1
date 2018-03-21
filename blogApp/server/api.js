@@ -11,7 +11,7 @@ router.get('/entradas', (req, res) =>{
     db.query(query, function(err, rows){
         if(err){
             console.log(err);
-            res.status(503).send({
+            res.status(500).send({
                 data: "Ups, ha ocurrido algo"
             });
         }
@@ -25,7 +25,7 @@ router.post('/entrada',(req, res)=>{
     var query = "INSERT INTO entrada (titulo, contenido) VALUES('"+req.body.titulo+"', '"+req.body.contenido+"')";
     db.query(query, function(err, rows){
         if(err){
-            res.status(503).send({
+            res.status(500).send({
                 body:{
                     result:"error"
                 }
